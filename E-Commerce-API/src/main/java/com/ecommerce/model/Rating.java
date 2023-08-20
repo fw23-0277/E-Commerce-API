@@ -1,5 +1,9 @@
 package com.ecommerce.model;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
@@ -36,6 +40,11 @@ public class Rating {
 	
 	@Column(name = "rating")
 	private double rating;
+	
+
+	@CreationTimestamp
+	@Column(updatable = false)
+	private LocalDateTime createdAt;
 	
 	
 }

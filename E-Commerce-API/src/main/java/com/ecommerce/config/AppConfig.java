@@ -24,7 +24,7 @@ public class AppConfig {
 		
 		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
 		.authorizeHttpRequests(Authorize-> Authorize.requestMatchers("/api/**").authenticated().anyRequest().permitAll())
-		.addFilterBefore(new JwtValidator(), BasicAuthenticationFilter.class)
+		.addFilterBefore(new JwtValidator(), BasicAuthenticationFilter.class	)
 		.csrf().disable()
 		.cors().configurationSource(new CorsConfigurationSource() {
 			
@@ -37,6 +37,7 @@ public class AppConfig {
 						"http://localhost:3000",
 						"http://localhost:4200"
 						));
+//				cfg.setAllowedOrigins(Collections.singletonList("*"));
 				cfg.setAllowedMethods(Collections.singletonList("*"));
 				cfg.setAllowCredentials(true);
 				cfg.setAllowedHeaders(Collections.singletonList("*"));

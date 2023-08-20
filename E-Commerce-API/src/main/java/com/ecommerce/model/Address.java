@@ -9,11 +9,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Address {
 	
@@ -22,10 +24,10 @@ public class Address {
 	private Long id;
 	
 	
-	@Column(name = "fisrt_name")
+	@Column(nullable = false , length = 30)
 	private String firstName;
 	
-	@Column(name = "last_name")
+	@Column(nullable = false , length = 30)
 	private String lastName;
 	
 	
@@ -41,7 +43,7 @@ public class Address {
 	@Column(name = "zip_code")
 	private String zipCode;
 	
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "user_id")
 	@JsonIgnore
 	private User user;
